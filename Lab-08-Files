@@ -1,0 +1,48 @@
+print("*!*!*!*!*!*!MACAROON STORE *!*!*!*!*!*!")
+print()
+print("Selamat Datang di Macaroon Store")
+print("Silahkan lihat menu dibawah ini:")
+
+r=0
+while r==0:
+    print("1. keranjang Macaroon ")
+    print("2. Isi Keranjang ")
+    print("3. Selesai ")
+    print()
+    nomor_pilihan=int(input("Masukkan nomor menu yang diinginkan : "))
+    if nomor_pilihan==1:
+        handle=open("Macaroon.txt","w+")
+        handle.write("Pesanan Macaroon kamu adalah:\n")
+        print("+++++++++ KERANJANG MACAROON ++++++++++")
+        print("1.Macaroon Baby ")
+        print("2.Macaroon Gold ")
+        print("3.Macaroon Silver")
+        jenis=int(input("Masukkan jumlah jenis Macaroon yang ingin dibeli : "))
+        for m in range (jenis):
+            jenis_macaroon=str(input("Masukkan Jenis Macaroon : "))
+            jumlah_box=str(input("Masukkan Berapa Box yang mau dibeli : "))
+            handle.write(jenis_macaroon+" ")
+            handle.write(jumlah_box+" ") 
+            handle.write("\n")   
+        print("Berhasil dimasukkan ke dalam keranjang")
+        handle.close()
+    elif nomor_pilihan == 2:
+            print("##### ISI KERANJANG #####")
+            handle=open("Macaroon.txt","r")
+            for m in handle:
+                z = m
+            handle.close()
+            z=z.split(" ")
+            p = 0
+            for m in range (len(z)//3):
+                for o in range(2):
+                    print("Jenis    Jumlah Box")
+                    print(z[p],"     ",z[p+1],"  ")
+                    print()
+                p += 2
+    elif nomor_pilihan== 3:
+            print("Terimakaasih Sudah berbelanja di Macaroon Store")
+            break
+    else:
+        print("Sepertinya anda salah memasukkan angka!!!")
+        print()
